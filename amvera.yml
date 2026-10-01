@@ -6,3 +6,4 @@ build:
   dockerfile: Dockerfile
 run:
   image: vdvoem
+  containerPort: 3000
