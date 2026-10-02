@@ -280,6 +280,9 @@ export const Match = ({ id, go, answers }) => {
       На главную
     </Button>
   </Div>
+                <Div>
+            <SignupButton go={go} label="Обсудить совместимость с коучем" />
+          </Div>
 </Group>
     </Panel>
   );
