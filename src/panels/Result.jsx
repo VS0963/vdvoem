@@ -1,5 +1,5 @@
 import { Panel, PanelHeader, Group, Div, Text, Button, Header } from '@vkontakte/vkui';
-
+import { SignupButton } from '../components/SignupButton';
 export const Result = ({ id, go, answers }) => {
   const getAnswer = (questionId) => {
     const answer = answers[questionId];
@@ -149,18 +149,18 @@ export const Result = ({ id, go, answers }) => {
         </Div>
       </Group>
 
-      <Group>
-        <Div>
-          <Button size="l" stretched onClick={() => go('match')}>
-            Посмотреть совместимость с Анной
-          </Button>
-        </Div>
-        <Div>
-          <Button size="l" stretched mode="secondary" onClick={() => go('test')}>
-            Вернуться к тесту
-          </Button>
-        </Div>
-      </Group>
+    <Group>
+  <Div>
+    <Button size="l" stretched onClick={() => go('match')}>
+      Посмотреть совместимость с Анной
+    </Button>
+  </Div>
+  <Div>
+    <Button size="l" stretched mode="secondary" onClick={() => go('test')}>
+      Вернуться к тесту
+    </Button>
+  </Div>
+</Group>
     </Panel>
   );
 };
