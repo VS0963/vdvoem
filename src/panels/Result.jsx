@@ -160,6 +160,9 @@ export const Result = ({ id, go, answers }) => {
       Вернуться к тесту
     </Button>
   </Div>
+                <Div>
+            <SignupButton go={go} label="Записаться на разбор результатов" />
+          </Div>
 </Group>
     </Panel>
   );
