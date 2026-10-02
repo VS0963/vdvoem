@@ -13,6 +13,7 @@ export const DEFAULT_VIEW_PANELS = {
   WELCOME: 'welcome',
   TEST: 'test',
   RESULT: 'result',
+  MATCH: 'match',
   HOME: 'home',
   PERSIK: 'persik',
 };
@@ -23,17 +24,11 @@ export const routes = RoutesConfig.create([
       createPanel(DEFAULT_VIEW_PANELS.WELCOME, '/', []),
       createPanel(DEFAULT_VIEW_PANELS.TEST, `/${DEFAULT_VIEW_PANELS.TEST}`, []),
       createPanel(DEFAULT_VIEW_PANELS.RESULT, `/${DEFAULT_VIEW_PANELS.RESULT}`, []),
+      createPanel(DEFAULT_VIEW_PANELS.MATCH, `/${DEFAULT_VIEW_PANELS.MATCH}`, []),
       createPanel(DEFAULT_VIEW_PANELS.HOME, `/${DEFAULT_VIEW_PANELS.HOME}`, []),
       createPanel(DEFAULT_VIEW_PANELS.PERSIK, `/${DEFAULT_VIEW_PANELS.PERSIK}`, []),
     ]),
   ]),
 ]);
 
-export const router = createHashRouter(routes.getRoutes());export const DEFAULT_VIEW_PANELS = {
-  WELCOME: 'welcome',
-  TEST: 'test',
-  RESULT: 'result',
-  MATCH: 'match',
-  HOME: 'home',
-  PERSIK: 'persik',
-};createPanel(DEFAULT_VIEW_PANELS.MATCH, `/${DEFAULT_VIEW_PANELS.MATCH}`, []),
+export const router = createHashRouter(routes.getRoutes());

@@ -1,8 +1,6 @@
-
 import { Panel, PanelHeader, Group, Div, Text, Button, Header } from '@vkontakte/vkui';
 
 export const Result = ({ id, go, answers }) => {
-  // Функция для получения ответа по id
   const getAnswer = (questionId) => {
     const answer = answers[questionId];
     return answer ? answer.answer : null;
@@ -14,8 +12,6 @@ export const Result = ({ id, go, answers }) => {
   };
 
   // ===== АНАЛИЗ ПРОФИЛЯ =====
-
-  // 1. Тип привязанности
   const emo1 = getScaleValue('emo_1');
   const emo2 = getScaleValue('emo_2');
   const emo3 = getScaleValue('emo_3');
@@ -33,7 +29,6 @@ export const Result = ({ id, go, answers }) => {
     attachmentDesc = 'Вы цените автономию и не любите давление. Важно выбирать партнёра, который уважает ваше пространство.';
   }
 
-  // 2. Готовность к семье
   const goal1 = getAnswer('goal_1');
   const goal7 = getScaleValue('goal_7');
 
@@ -48,7 +43,6 @@ export const Result = ({ id, go, answers }) => {
     familyDesc = 'Семья и дети пока не в приоритете. Это нормально — важно найти партнёра с такими же взглядами.';
   }
 
-  // 3. Ценности
   const value1 = getAnswer('value_1');
   const value2 = getAnswer('value_2');
   const value3 = getAnswer('value_3');
@@ -61,7 +55,6 @@ export const Result = ({ id, go, answers }) => {
   else if (value1 === 'Продолжение рода') coreValues = 'семья и дети';
   else if (value1 === 'Совместный быт и уют') coreValues = 'уют и гармония';
 
-  // 4. Слепые зоны
   const comm1 = getAnswer('comm_1');
   const comm5 = getAnswer('comm_5');
   const comm12 = getAnswer('comm_12');
@@ -80,12 +73,10 @@ export const Result = ({ id, go, answers }) => {
     blindSpots.push('Особых слепых зон не выявлено — вы хорошо осознаёте свои паттерны.');
   }
 
-  // 5. Партнёр
   const life24 = getScaleValue('life_24');
   const value4 = getScaleValue('value_4');
   const value5 = getScaleValue('value_5');
 
-  // ===== СТИЛИ ДЛЯ ЦВЕТНЫХ БЛОКОВ =====
   const blockStyle = (color) => ({
     background: color,
     borderRadius: 12,
@@ -100,18 +91,6 @@ export const Result = ({ id, go, answers }) => {
     marginBottom: 8,
     textTransform: 'uppercase',
     letterSpacing: 1,
-  };
-
-  const blockHeading = {
-    fontSize: 22,
-    fontWeight: 600,
-    marginBottom: 8,
-  };
-
-  const blockText = {
-    fontSize: 15,
-    lineHeight: 1.5,
-    opacity: 0.95,
   };
 
   return (
@@ -129,49 +108,42 @@ export const Result = ({ id, go, answers }) => {
 
       <Group>
         <Div>
-          {/* Блок 1: Близость — ЗЕЛЁНЫЙ */}
           <div style={blockStyle('linear-gradient(135deg, #4BB34B 0%, #3A8A3A 100%)')}>
             <div style={blockTitle}>Как вы строите близость</div>
-            <div style={blockHeading}>{attachmentType} тип</div>
-            <div style={blockText}>{attachmentDesc}</div>
+            <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 8 }}>{attachmentType} тип</div>
+            <div style={{ fontSize: 15, lineHeight: 1.5 }}>{attachmentDesc}</div>
           </div>
 
-          {/* Блок 2: Семья — СИНИЙ */}
           <div style={blockStyle('linear-gradient(135deg, #2688EB 0%, #1C6BB8 100%)')}>
             <div style={blockTitle}>Ваша готовность к семье</div>
-            <div style={blockHeading}>{familyReadiness}</div>
-            <div style={blockText}>{familyDesc}</div>
+            <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 8 }}>{familyReadiness}</div>
+            <div style={{ fontSize: 15, lineHeight: 1.5 }}>{familyDesc}</div>
           </div>
 
-          {/* Блок 3: Ценности — ФИОЛЕТОВЫЙ */}
           <div style={blockStyle('linear-gradient(135deg, #9B59B6 0%, #7B3F96 100%)')}>
             <div style={blockTitle}>Ваши главные ценности</div>
-            <div style={blockHeading}>{coreValues}</div>
-            <div style={blockText}>
+            <div style={{ fontSize: 22, fontWeight: 600, marginBottom: 8 }}>{coreValues}</div>
+            <div style={{ fontSize: 15, lineHeight: 1.5 }}>
               {value2 && <>В отношениях вы цените: <b>{value2}</b>.<br /></>}
               {value3 && <>Вы не приемлете: <b>{value3}</b>.</>}
             </div>
           </div>
 
-          {/* Блок 4: Внимание — ЖЁЛТЫЙ */}
           <div style={blockStyle('linear-gradient(135deg, #FFC107 0%, #E5A800 100%)')}>
             <div style={blockTitle}>На что обратить внимание</div>
             {blindSpots.map((spot, i) => (
-              <div key={i} style={{ ...blockText, marginTop: i > 0 ? 8 : 0 }}>
-                • {spot}
-              </div>
+              <div key={i} style={{ fontSize: 15, marginTop: i > 0 ? 8 : 0 }}>• {spot}</div>
             ))}
           </div>
 
-          {/* Блок 5: Партнёр — КРАСНЫЙ */}
           <div style={blockStyle('linear-gradient(135deg, #E64646 0%, #B83636 100%)')}>
             <div style={blockTitle}>Что для вас важно в партнёре</div>
-            {life24 >= 7 && <div style={blockText}>• Тот же уровень жизни, что и у вас.</div>}
-            {life24 <= 3 && <div style={blockText}>• Уровень жизни не имеет значения.</div>}
-            {value4 >= 7 && <div style={{ ...blockText, marginTop: 8 }}>• Схожие политические взгляды.</div>}
-            {value5 >= 7 && <div style={{ ...blockText, marginTop: 8 }}>• Схожие религиозные взгляды.</div>}
+            {life24 >= 7 && <div style={{ fontSize: 15 }}>• Тот же уровень жизни, что и у вас.</div>}
+            {life24 <= 3 && <div style={{ fontSize: 15 }}>• Уровень жизни не имеет значения.</div>}
+            {value4 >= 7 && <div style={{ fontSize: 15, marginTop: 8 }}>• Схожие политические взгляды.</div>}
+            {value5 >= 7 && <div style={{ fontSize: 15, marginTop: 8 }}>• Схожие религиозные взгляды.</div>}
             {life24 < 7 && life24 > 3 && value4 < 7 && value5 < 7 && (
-              <div style={blockText}>• Гибкость — вам важно найти своего человека, а не «идеального».</div>
+              <div style={{ fontSize: 15 }}>• Гибкость — вам важно найти своего человека, а не «идеального».</div>
             )}
           </div>
         </Div>
@@ -179,9 +151,8 @@ export const Result = ({ id, go, answers }) => {
 
       <Group>
         <Div>
-          <<Button size="l" stretched onClick={() => go('match')}>
-  Посмотреть совместимость с Анной
-</Button>
+          <Button size="l" stretched onClick={() => go('match')}>
+            Посмотреть совместимость с Анной
           </Button>
         </Div>
         <Div>
