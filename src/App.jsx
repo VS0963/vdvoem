@@ -3,7 +3,7 @@ import bridge from '@vkontakte/vk-bridge';
 import { View, SplitLayout, SplitCol } from '@vkontakte/vkui';
 import { useActiveVkuiLocation, useRouteNavigator } from '@vkontakte/vk-mini-apps-router';
 
-import { Welcome, Test, Result, Match, Home, Persik } from './panels';
+import { Welcome, Test, Result, Match, Home, Persik, Application } from './panels';
 import { DEFAULT_VIEW_PANELS } from './routes';
 
 export const App = () => {
