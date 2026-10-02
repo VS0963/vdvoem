@@ -38,6 +38,7 @@ export const App = () => {
           <Match id="match" go={go} answers={answers} />
           <Home id="home" fetchedUser={fetchedUser} />
           <Persik id="persik" />
+          <Application id="application" go={go} />
         </View>
       </SplitCol>
     </SplitLayout>
