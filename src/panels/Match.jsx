@@ -1,5 +1,5 @@
 import { Panel, PanelHeader, Group, Div, Text, Button, Header } from '@vkontakte/vkui';
-
+import { SignupButton } from '../components/SignupButton';
 // Демо-профиль для сравнения (потом заменим на реального пользователя)
 const DEMO_PROFILE = {
   name: 'Анна',
@@ -269,18 +269,18 @@ export const Match = ({ id, go, answers }) => {
         </Div>
       </Group>
 
-      <Group>
-        <Div>
-          <Button size="l" stretched onClick={() => go('result')}>
-            Вернуться к профилю
-          </Button>
-        </Div>
-        <Div>
-          <Button size="l" stretched mode="secondary" onClick={() => go('welcome')}>
-            На главную
-          </Button>
-        </Div>
-      </Group>
+    <Group>
+  <Div>
+    <Button size="l" stretched onClick={() => go('result')}>
+      Вернуться к профилю
+    </Button>
+  </Div>
+  <Div>
+    <Button size="l" stretched mode="secondary" onClick={() => go('welcome')}>
+      На главную
+    </Button>
+  </Div>
+</Group>
     </Panel>
   );
 };
