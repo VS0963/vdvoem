@@ -181,17 +181,47 @@ export const Match = ({ id, go, answers }) => {
     <Panel id={id}>
       <PanelHeader>Совместимость</PanelHeader>
 
-      <Group>
-        <Div style={{ textAlign: 'center', paddingTop: 8, paddingBottom: 8 }}>
-          <Text weight="1" style={{ fontSize: 24 }}>
-            {DEMO_PROFILE.name}, {DEMO_PROFILE.age}
-          </Text>
-          <Text style={{ color: '#818C99', marginTop: 4 }}>
-            {DEMO_PROFILE.city}
-          </Text>
-          <Text style={{ marginTop: 12, color: '#818C99' }}>
+            <Group>
+        <Div style={{ paddingTop: 16, paddingBottom: 8 }}>
+          {/* Аватар-заглушка + имя */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+            <div
+              style={{
+                width: 72,
+                height: 72,
+                borderRadius: '50%',
+                background: 'linear-gradient(135deg, #9B59B6 0%, #2688EB 100%)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#fff',
+                fontSize: 28,
+                fontWeight: 600,
+                flexShrink: 0,
+              }}
+            >
+              {DEMO_PROFILE.name.charAt(0)}
+            </div>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 22, fontWeight: 600 }}>
+                {DEMO_PROFILE.name}, {DEMO_PROFILE.age}
+              </div>
+              <div style={{ fontSize: 14, color: '#818C99', marginTop: 4 }}>
+                📍 {DEMO_PROFILE.city}
+              </div>
+              <div style={{ fontSize: 14, color: '#4BB34B', marginTop: 4, fontWeight: 500 }}>
+                ● Онлайн недавно
+              </div>
+            </div>
+          </div>
+
+          {/* Разделитель */}
+          <div style={{ height: 1, background: '#E5E7EB', margin: '16px 0' }} />
+
+          {/* Описание */}
+          <div style={{ fontSize: 14, color: '#818C99', textAlign: 'center' }}>
             Мы сравнили ваши ответы. Вот что получилось.
-          </Text>
+          </div>
         </Div>
       </Group>
 
