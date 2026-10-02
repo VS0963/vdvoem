@@ -24,6 +24,7 @@ export const Home = ({ id, fetchedUser }) => {
           </Button>
         </Div>
       </Group>
+              <SignupButton onGo={() => routeNavigator.push('application')} />
     </Panel>
   );
 };
