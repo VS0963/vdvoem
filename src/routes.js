@@ -29,4 +29,11 @@ export const routes = RoutesConfig.create([
   ]),
 ]);
 
-export const router = createHashRouter(routes.getRoutes());
+export const router = createHashRouter(routes.getRoutes());export const DEFAULT_VIEW_PANELS = {
+  WELCOME: 'welcome',
+  TEST: 'test',
+  RESULT: 'result',
+  MATCH: 'match',
+  HOME: 'home',
+  PERSIK: 'persik',
+};createPanel(DEFAULT_VIEW_PANELS.MATCH, `/${DEFAULT_VIEW_PANELS.MATCH}`, []),

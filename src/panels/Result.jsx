@@ -179,8 +179,9 @@ export const Result = ({ id, go, answers }) => {
 
       <Group>
         <Div>
-          <Button size="l" stretched onClick={() => go('welcome')}>
-            Перейти к подбору (скоро)
+          <<Button size="l" stretched onClick={() => go('match')}>
+  Посмотреть совместимость с Анной
+</Button>
           </Button>
         </Div>
         <Div>
