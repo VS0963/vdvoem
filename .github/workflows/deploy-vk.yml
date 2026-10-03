@@ -1,0 +1,21 @@
+name: Deploy to VK Hosting
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm install
+      - run: npm run build
+      - run: npm install --no-save @vkontakte/vk-miniapps-deploy
+      - name: Deploy
+        env:
+          VK_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
+          CI: 'true'
+        run: yes | npx vk-miniapps-deploy --token "$VK_TOKEN"
