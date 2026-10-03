@@ -16,6 +16,5 @@ jobs:
       - run: npm install --no-save @vkontakte/vk-miniapps-deploy
       - name: Deploy
         env:
-          VK_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
-          CI: 'true'
-        run: yes | npx vk-miniapps-deploy --token "$VK_TOKEN"
+          MINI_APPS_ACCESS_TOKEN: ${{ secrets.VK_ACCESS_TOKEN }}
+        run: npx vk-miniapps-deploy
