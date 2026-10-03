@@ -32,4 +32,4 @@ jobs:
         env:
           VK_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
         run: |
-          printf 'y\n' | npx vk-miniapps-deploy --token "$VK_TOKEN"
+          printf 'y\ny\ny\ny\ny\n' | npx vk-miniapps-deploy --token "$VK_TOKEN"
