@@ -18,7 +18,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-       
 
       - name: Install dependencies
         run: npm install
@@ -29,8 +28,8 @@ jobs:
       - name: Install vk-miniapps-deploy
         run: npm install --no-save @vkontakte/vk-miniapps-deploy
 
-           - name: Deploy to VK
+      - name: Deploy to VK
         env:
           VK_TOKEN: ${{ secrets.VK_SERVICE_TOKEN }}
         run: |
-          echo "y" | npx vk-miniapps-deploy --token $VK_TOKEN
+          printf 'y\n' | npx vk-miniapps-deploy --token "$VK_TOKEN"
