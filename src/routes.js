@@ -22,7 +22,7 @@ export const DEFAULT_VIEW_PANELS = {
   APPLICATION: 'application',
 };
 
-export const routes = RoutesConfig.create({
+export const routes = RoutesConfig.create(
   createRoot(DEFAULT_ROOT, [
     createView(DEFAULT_VIEW, [
       createPanel(DEFAULT_VIEW_PANELS.WELCOME, '/', []),
@@ -33,7 +33,7 @@ export const routes = RoutesConfig.create({
       createPanel(DEFAULT_VIEW_PANELS.PERSIK, '/' + DEFAULT_VIEW_PANELS.PERSIK, []),
       createPanel(DEFAULT_VIEW_PANELS.APPLICATION, '/' + DEFAULT_VIEW_PANELS.APPLICATION, []),
     ]),
-  ]),
-});
+  ])
+);
 
 export const router = createHashRouter(routes.getRoutes());
